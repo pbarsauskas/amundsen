@@ -49,10 +49,10 @@ from databuilder.transformer.generic_transformer import (
     CALLBACK_FUNCTION, FIELD_NAME, GenericTransformer,
 )
 
-ATLAS_CREATE_BATCH_SIZE = 15
-ATLAS_SEARCH_CHUNK_SIZE = 15
-ATLAS_DETAILS_CHUNK_SIZE = 15
-ATLAS_PROCESS_POOL_SIZE = 3
+ATLAS_CREATE_BATCH_SIZE = 5
+ATLAS_SEARCH_CHUNK_SIZE = 5
+ATLAS_DETAILS_CHUNK_SIZE = 5
+ATLAS_PROCESS_POOL_SIZE = 1
 
 es_host = os.getenv('CREDENTIALS_ELASTICSEARCH_PROXY_HOST', 'localhost')
 atlas_host = os.getenv('CREDENTIALS_ATLAS_PROXY_HOST', 'localhost')
@@ -344,7 +344,7 @@ if __name__ == "__main__":
     run_csv_job('example/sample_data/sample_table_owner.csv', 'test_table_owner_metadata',
                 'databuilder.models.table_owner.TableOwner')
     run_csv_job('example/sample_data/sample_column_usage.csv', 'test_usage_metadata',
-                'databuilder.models.column_usage_model.ColumnUsageModel')
+                'databuilder.models.table_column_usage.ColumnReader')
     run_csv_job('example/sample_data/sample_user.csv', 'test_user_metadata',
                 'databuilder.models.user.User')
     run_csv_job('example/sample_data/sample_application.csv', 'test_application_metadata',
