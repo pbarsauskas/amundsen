@@ -16,7 +16,6 @@ from amundsen_common.models.feature import Feature
 from amundsen_common.models.generation_code import GenerationCode
 from amundsen_common.models.lineage import Lineage, LineageItem
 from amundsen_common.models.popular_table import PopularTable
-from amundsen_common.models.query import Query
 from amundsen_common.models.table import (Application, Badge, Column,
                                           ProgrammaticDescription, Reader,
                                           ResourceReport, Stat, Table, Tag,
