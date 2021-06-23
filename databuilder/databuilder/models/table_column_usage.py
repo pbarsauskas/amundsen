@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from typing import (
-    Iterable, Iterator, Union, Optional,
+    Iterable, Iterator, Optional, Union,
 )
 
 from amundsen_rds.models import RDSModel
