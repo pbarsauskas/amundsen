@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 from typing import (
-    Iterable, Iterator, Union,
+    Iterable, Iterator, Union, Optional,
 )
 
 from amundsen_rds.models import RDSModel
@@ -99,7 +99,7 @@ class TableColumnUsage(GraphSerializable, TableSerializable, AtlasSerializable):
                 yield record
                 record = usage.create_next_record()
 
-    def _create_next_atlas_entity(self) -> Iterator[AtlasEntity]:
+    def _create_next_atlas_entity(self) -> Iterator[Optional[AtlasEntity]]:
         for usage in self.col_readers:
             yield usage.create_next_atlas_entity()
 
@@ -115,9 +115,9 @@ class TableColumnUsage(GraphSerializable, TableSerializable, AtlasSerializable):
         except StopIteration:
             return None
 
-    def _create_atlas_relation_iterator(self) -> Iterator[AtlasRelationship]:
+    def _create_atlas_relation_iterator(self) -> Iterator[Optional[AtlasRelationship]]:
         for usage in self.col_readers:
-            yield usage.create_next_relation()
+            yield usage.create_next_atlas_relation()
 
     def __repr__(self) -> str:
         return f'TableColumnUsage(col_readers={self.col_readers!r})'
