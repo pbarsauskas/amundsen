@@ -36,4 +36,3 @@ dashboard_query_schema = get_schema("schema/dashboard/03_query.json")
 dashboard_chart_schema = get_schema("schema/dashboard/04_chart.json")
 dashboard_execution_schema = get_schema("schema/dashboard/05_execution.json")
 dashboard_cluster_relation = get_schema("schema/dashboard/06_dashboard_cluster_relation.json")
-

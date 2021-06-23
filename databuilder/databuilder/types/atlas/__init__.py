@@ -68,94 +68,94 @@ class AtlasEntityInitializer:
         finally:
             LOGGER.info(f"Applied {info} Entity Definition")
 
-    def get_schema_dict(self, schema):
+    def get_schema_dict(self, schema: str) -> Dict:
         return json.loads(schema)
 
-    def create_table_schema(self):
+    def create_table_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(table_schema), "Table")
 
-    def create_column_schema(self):
+    def create_column_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(column_schema), "Column")
 
-    def create_column_table_relation(self):
+    def create_column_table_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(column_table_relation), "Column <-> Table")
 
-    def create_cluster_schema(self):
+    def create_cluster_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(cluster_schema), "Cluster")
 
-    def create_database_schema(self):
+    def create_database_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(database_schema), "Database")
 
-    def create_database_cluster_relation(self):
+    def create_database_cluster_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(database_cluster_relation), "Database <-> Cluster")
 
-    def create_schema_schema(self):
+    def create_schema_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(schema_schema), "Schema")
 
-    def create_schema_cluster_relation(self):
+    def create_schema_cluster_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(schema_cluster_relation), "Schema <-> Database")
 
-    def create_table_schema_relation(self):
+    def create_table_schema_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(table_schema_relation), "Table <-> Schema")
 
-    def create_user_schema(self):
+    def create_user_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(user_schema), "User")
 
-    def create_reader_schema(self):
+    def create_reader_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(reader_schema), "Reader")
 
-    def create_bookmark_schema(self):
+    def create_bookmark_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(bookmark_schema), "Bookmark")
 
-    def create_report_schema(self):
+    def create_report_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(report_schema), "Report")
 
-    def create_user_reader_relation(self):
+    def create_user_reader_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(user_reader_relation), "User <-> Reader")
 
-    def create_reader_referenceable_relation(self):
+    def create_reader_referenceable_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(reader_referenceable_relation), "Reader <-> Referenceable")
 
-    def create_table_partition_schema(self):
+    def create_table_partition_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(table_partition_schema), "Partition")
 
-    def create_hive_table_partition(self):
+    def create_hive_table_partition(self) -> None:
         self.create_or_update(self.get_schema_dict(hive_table_partition), "Hive Table Partition")
 
-    def create_data_owner_relation(self):
+    def create_data_owner_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(data_owner_schema), "Data Owner Relation")
 
-    def create_application_schema(self):
+    def create_application_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(application_schema), "Application")
 
-    def create_source_schema(self):
+    def create_source_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(source_schema), "Source")
 
-    def create_table_source_relation(self):
+    def create_table_source_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(table_source_relation), "Table <-> Source")
 
-    def create_lineage_schema(self):
+    def create_lineage_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(lineage_schema), "LineageProcess")
 
-    def create_dashboard_group_schema(self):
+    def create_dashboard_group_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(dashboard_group_schema), "Dashboard Group")
 
-    def create_dashboard_schema(self):
+    def create_dashboard_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(dashboard_schema), "Dashboard")
 
-    def create_dashboard_chart_schema(self):
+    def create_dashboard_chart_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(dashboard_chart_schema), "Dashboard Chart")
 
-    def create_dashboard_query_schema(self):
+    def create_dashboard_query_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(dashboard_query_schema), "Dashboard Query")
 
-    def create_dashboard_execution_schema(self):
+    def create_dashboard_execution_schema(self) -> None:
         self.create_or_update(self.get_schema_dict(dashboard_execution_schema), "Dashboard Execution")
 
-    def create_dashboard_cluster_relation(self):
+    def create_dashboard_cluster_relation(self) -> None:
         self.create_or_update(self.get_schema_dict(database_cluster_relation), "Dashboard <-> Cluster")
 
-    def create_required_entities(self, fix_existing_data=False):
+    def create_required_entities(self, fix_existing_data: bool = False) -> None:
         """
         IMPORTANT: The order of the entity definition matters.
         Please keep this order.
